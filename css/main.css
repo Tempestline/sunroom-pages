@@ -34,6 +34,9 @@ img{max-width:100%;display:block}
 .snd.on{color:var(--text);border-color:var(--muted)}
 .snd.on i{background:var(--bang);box-shadow:0 0 0 3px rgba(255,199,26,.3)}
 .snd:focus-visible{outline:2px solid var(--bang);outline-offset:2px}
+.lang{all:unset;cursor:pointer;padding:9px 11px;border:1px solid var(--dim);border-radius:4px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--muted)}
+.lang:hover{color:var(--text);border-color:var(--muted)}
+.lang:focus-visible{outline:2px solid var(--bang);outline-offset:2px}
 @media (max-width:760px){.nav__links{display:none}.nav{padding:16px 18px}.snd span{display:none}.snd{padding:9px 10px}}
 
 .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;padding:13px 20px;border:1px solid var(--dim);border-radius:4px;color:var(--text);cursor:pointer;background:transparent;transition:background .2s,color .2s,border-color .2s,transform .2s;white-space:nowrap}

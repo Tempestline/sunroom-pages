@@ -7,6 +7,8 @@
   <meta name="description" content="$NPCAT is a non-playable cat on Solana, launched on StonkFun and paired with $NPC. Ten thousand NPCs, one cat. No roadmap, no utility. It just sits there." />
   <meta name="theme-color" content="#131312" />
   <link rel="canonical" href="https://npcat.cat/" />
+  <link rel="alternate" hreflang="en" href="https://npcat.cat/" />
+  <link rel="alternate" hreflang="ca" href="https://npcat.cat/?lang=ca" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://npcat.cat/" />
   <meta property="og:title" content="NPCAT! — Non-Playable Cat" />
@@ -33,6 +35,7 @@
     <a class="nav__brand" href="#top">NPCAT<em>!</em></a>
     <nav class="nav__links" aria-label="Sections"><a href="#lore">Lore</a><a href="#quest">Quest</a><a href="#pair">Pair</a><a href="#buy">Buy</a><a href="#faq">FAQ</a></nav>
     <div class="nav__right">
+      <button class="lang" type="button" aria-label="Canvia al català" title="Canvia al català">CA</button>
       <button class="snd" id="snd" aria-pressed="false" title="Toggle sound"><i></i><span>Sound off</span></button>
       <a class="btn btn--bang" href="#buy">Buy on StonkFun</a>
     </div>
@@ -152,11 +155,12 @@
 
   <footer>
     <p>$NPCAT is a meme coin. No utility, no roadmap, no promises. Not affiliated with npc.com, StonkFun, or any cat. Nothing here is financial advice. Only trust links from this page and <a href="https://x.com/npcatnpc" rel="noopener" target="_blank">x.com/npcatnpc</a>.</p>
-    <p>© 2026 NPCAT · <a href="https://npcat.cat/">npcat.cat</a></p>
+    <p>© 2026 NPCAT · <a href="https://npcat.cat/">npcat.cat</a> · <a href="?lang=ca" hreflang="ca" lang="ca">Català</a> · <a href="?lang=en" hreflang="en">English</a></p>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/ScrollTrigger.min.js" defer></script>
   <script src="js/main.js" defer></script>
+  <script src="js/i18n.js" defer></script>
 </body>
 </html>
