@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 — Quest not found · NPCAT!</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#131312" />
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <style>
+    .lost{position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden}
+    .lost canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y}
+    .lost__copy{position:absolute;left:0;right:0;top:16%;text-align:center;padding:0 24px;pointer-events:none}
+    .lost__copy small{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--bang);margin-bottom:14px}
+    .lost__copy h1{font-family:var(--display);font-weight:800;font-size:clamp(34px,6vw,84px);line-height:1;letter-spacing:-.02em;margin:0 0 14px}
+    .lost__copy p{margin:0 auto;max-width:40ch;color:var(--muted);font-size:18px}
+    .lost__copy .btn{pointer-events:auto;margin-top:22px}
+    .lost__cat{position:absolute;left:50%;bottom:0;width:var(--catw,280px);transform:translateX(-50%);pointer-events:none;filter:drop-shadow(0 0 22px rgba(255,255,255,.10))}
+    .lost__hint{position:absolute;left:28px;bottom:26px;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;color:var(--dim);pointer-events:none}
+    @media (max-width:760px){.lost__hint{display:none}}
+  </style>
+</head>
+<body>
+  <header class="nav"><a class="nav__brand" href="/">NPCAT<em>!</em></a><div class="nav__right"><a class="btn btn--bang" href="/">Back to the crowd</a></div></header>
+  <section class="lost" id="top">
+    <canvas id="world" aria-label="Yellow quest markers falling and piling up around the cat. Drag to throw."></canvas>
+    <div class="lost__copy">
+      <small>404 · quest not found</small>
+      <h1>This NPC has nothing for you.</h1>
+      <p>The page you were looking for just sits there, somewhere else. The cat does not know where.</p>
+      <a class="btn btn--bang" href="/">Back to the crowd</a>
+    </div>
+    <img class="lost__cat" id="mascot" src="/assets/img/cat.png" alt="" />
+    <div class="lost__hint">Click · drop a quest marker · Drag · throw it</div>
+  </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.20.0/matter.min.js"></script>
+  <script>
+  (function () {
+    if (typeof Matter === 'undefined') return;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches, isMobile = matchMedia('(max-width: 760px)').matches;
+    const { Engine, Render, Runner, Bodies, Body, Composite, Mouse, MouseConstraint } = Matter;
+    const hero = document.querySelector('.lost'), canvas = document.getElementById('world'), mascot = document.getElementById('mascot');
+    const BANG = '/assets/img/bang.png', TEX_W = 210, TEX_H = 521;
+    const W = hero.clientWidth, H = hero.clientHeight;
+    const catW = isMobile ? Math.min(W * .6, 240) : Math.min(W * .24, 300), catH = catW * 760 / 690; mascot.style.setProperty('--catw', catW + 'px');
+    const engine = Engine.create({ gravity: { x: 0, y: 1.1 } });
+    const render = Render.create({ canvas, engine, options: { width: W, height: H, pixelRatio: Math.min(devicePixelRatio || 1, 2), background: 'transparent', wireframes: false } });
+    const st = (x, y, w, h, o) => Bodies.rectangle(x, y, w, h, Object.assign({ isStatic: true, render: { visible: false } }, o || {}));
+    Composite.add(engine.world, [st(W / 2, H + 40, W * 2, 80), st(-40, H / 2, 80, H * 4), st(W + 40, H / 2, 80, H * 4),
+      st(W / 2, H - catH * .42, catW * .86, catH * .74, { chamfer: { radius: catW * .3 }, friction: .6 }), Bodies.circle(W / 2, H - catH * .72, catW * .38, { isStatic: true, render: { visible: false }, friction: .6 })]);
+    const marks = [], MAX = isMobile ? 24 : 56, S = (isMobile ? 40 : 52) / TEX_W;
+    function mark(x, y, vx, vy) {
+      const bar = Bodies.fromVertices(x, y - 95.5 * S, [[{ x: -95 * S, y: -255 * S }, { x: 95 * S, y: -255 * S }, { x: 55 * S, y: 85 * S }, { x: -55 * S, y: 85 * S }]], { render: { sprite: { texture: BANG, xScale: S, yScale: S, xOffset: .5, yOffset: .5 + (95.5 * S) / (TEX_H * S) } } });
+      const dot = Bodies.circle(x, y + 191.5 * S, 70 * S, { render: { visible: false } });
+      const b = Body.create({ parts: [bar, dot], restitution: .28, friction: .5, frictionAir: .012, density: .0018 });
+      Body.setAngle(b, (Math.random() - .5) * .8); Body.setVelocity(b, { x: vx || 0, y: vy || 0 }); Body.setAngularVelocity(b, (Math.random() - .5) * .12);
+      Composite.add(engine.world, b); marks.push(b); if (marks.length > MAX) Composite.remove(engine.world, marks.shift());
+    }
+    const mouse = Mouse.create(canvas); mouse.pixelRatio = render.options.pixelRatio;
+    const mc = MouseConstraint.create(engine, { mouse, constraint: { stiffness: .12, render: { visible: false } } }); Composite.add(engine.world, mc);
+    mouse.element.removeEventListener('wheel', mouse.mousewheel); mouse.element.removeEventListener('DOMMouseScroll', mouse.mousewheel);
+    mouse.element.removeEventListener('touchstart', mouse.mousedown); mouse.element.removeEventListener('touchmove', mouse.mousemove); mouse.element.removeEventListener('touchend', mouse.mouseup);
+    canvas.addEventListener('pointerdown', e => { if (mc.body) return; const r = hero.getBoundingClientRect(); for (let i = 0; i < 3; i++) mark(e.clientX - r.left + (i - 1) * 30, e.clientY - r.top - 40, (Math.random() - .5) * 4, -3); });
+    for (let i = 0; i < (isMobile ? 6 : 12); i++) mark(W * .2 + Math.random() * W * .6, -100 - i * 130, 0, 3);
+    (function rain() { if (!reduce && marks.length < (isMobile ? 14 : 34) && !document.hidden) mark(W * .15 + Math.random() * W * .7, -120, (Math.random() - .5) * 2, 2); setTimeout(rain, marks.length < 8 ? 380 : 900 + Math.random() * 900); })();
+    const runner = Runner.create(); Runner.run(runner, engine); Render.run(render);
+  })();
+  </script>
+</body>
+</html>

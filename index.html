@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NPCAT! — Non-Playable Cat</title>
+  <meta name="description" content="$NPCAT is a non-playable cat on Solana, launched on StonkFun and paired with $NPC. Ten thousand NPCs, one cat. No roadmap, no utility. It just sits there." />
+  <meta name="theme-color" content="#131312" />
+  <link rel="canonical" href="https://npcat.cat/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://npcat.cat/" />
+  <meta property="og:title" content="NPCAT! — Non-Playable Cat" />
+  <meta property="og:description" content="Ten thousand NPCs. One cat. Paired with $NPC on StonkFun. It just sits there." />
+  <meta property="og:image" content="https://npcat.cat/assets/img/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@npcatnpc" />
+  <meta name="twitter:title" content="NPCAT! — Non-Playable Cat" />
+  <meta name="twitter:description" content="Ten thousand NPCs. One cat. Paired with $NPC on StonkFun. It just sits there." />
+  <meta name="twitter:image" content="https://npcat.cat/assets/img/og.png" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+  <link rel="preload" href="assets/fonts/unbounded.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/img/cat.png" as="image" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+  <a class="skip" href="#lore">Skip to content</a>
+
+  <header class="nav">
+    <a class="nav__brand" href="#top">NPCAT<em>!</em></a>
+    <nav class="nav__links" aria-label="Sections"><a href="#lore">Lore</a><a href="#quest">Quest</a><a href="#pair">Pair</a><a href="#buy">Buy</a><a href="#faq">FAQ</a></nav>
+    <div class="nav__right">
+      <button class="snd" id="snd" aria-pressed="false" title="Toggle sound"><i></i><span>Sound off</span></button>
+      <a class="btn btn--bang" href="#buy">Buy on StonkFun</a>
+    </div>
+  </header>
+
+  <section class="swarm" id="top" aria-label="NPCAT crowd">
+    <canvas id="crowd" aria-hidden="true"></canvas>
+    <img class="swarm__fallback" src="assets/img/logo-full.png" alt="NPCAT, a grey non-playable cat with a heart on its chest and a yellow quest marker above its head" />
+    <div class="swarm__ui">
+      <div></div>
+      <div class="chapters" id="chapters">
+        <div class="ch on" data-ch="0"><small>01 / 04 — the crowd</small><h1>Ten thousand NPCs. One <em>cat.</em></h1><p>Every dot is a non-playable character. Move your cursor through them. They part. They come back. They always come back.</p></div>
+        <div class="ch" data-ch="1"><small>02 / 04 — quest available</small><h2>The quest is simple. Hold $NPCAT, get <em>$NPC.</em></h2><p>The yellow mark means an NPC has a quest for you. This one has exactly one step.</p><a class="btn btn--bang" href="#quest">Read the quest</a></div>
+        <div class="ch" data-ch="2"><small>03 / 04 — the ticker</small><h2>$NPCAT, paired with $NPC.</h2><p>Launched on StonkFun on Solana, quoted in Non-Playable Coin instead of SOL. Two grey faces, one chart.</p><a class="btn btn--bang" href="#buy">Buy $NPCAT with $NPC</a></div>
+        <div class="ch" data-ch="3"><small>04 / 04 — the heart</small><h2>It has a heart. Somewhere in there.</h2><p>No roadmap. No utility. Just a cat made of everyone, holding the line.</p></div>
+      </div>
+    </div>
+    <div class="hint" aria-hidden="true"><span>Move · the crowd parts</span><span>Click · it scatters</span><span>Scroll · it changes shape</span></div>
+    <div class="meter" aria-hidden="true"><span>NPCs on screen <b id="count">0</b></span><div class="bar"><i id="bar"></i></div><span>Chapter <b id="chn">01</b> / 04</span></div>
+    <div class="scrollcue" aria-hidden="true">Scroll<i></i></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="marquee__track"><span><b>!</b> Quest is simple <b>!</b> Hold $NPCAT <b>!</b> Get $NPC <b>!</b> We are all NPCAT <b>!</b> No roadmap <b>!</b> It just sits there</span><span><b>!</b> Quest is simple <b>!</b> Hold $NPCAT <b>!</b> Get $NPC <b>!</b> We are all NPCAT <b>!</b> No roadmap <b>!</b> It just sits there</span></div></div>
+
+  <section class="block" id="lore">
+    <div class="two">
+      <div>
+        <p class="label">The lore</p>
+        <h2 class="t">Eight billion people. Most of them are NPCs. One of them is a cat.</h2>
+        <p class="lead">It sat on the same rug for four hundred years. It supported the current thing. It answered every question with <b>“...”</b>. Then somebody paired it with $NPC on StonkFun and, for the first time in recorded history, it looked up.</p>
+      </div>
+      <div class="npcs">
+        <div class="npc"><small>NPC #4,821</small><em>“I support the current cat.”</em><b>verified</b></div>
+        <div class="npc"><small>NPC #2,007</small><em>“Is this the line for the airdrop?”</em><b>no</b></div>
+        <div class="npc"><small>NPC #9,999</small><em>“...”</em><b>relatable</b></div>
+        <div class="npc"><small>NPC #0,001</small><em>“It looked at me. It actually looked at me.”</em><b>alert</b></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="block" id="quest">
+    <p class="label">Quest available</p>
+    <h2 class="t">The quest is simple.<br>Hold $NPCAT, get <em>$NPC.</em></h2>
+    <p class="lead" id="questLead">NPCAT launches on StonkFun as a <b>reward coin</b>: a small transfer tax on every trade collects into a pot, and StonkFun splits that pot across holders in the coin's paired asset. The paired asset is <b>$NPC</b>. Nothing to claim, nothing to stake. The exact tax rate and payout threshold are fixed at launch and will be quoted here from the token page.</p>
+    <div class="questlog" id="questlog">
+      <div class="q q--main"><span class="q__mark">!</span><div><b>Hold $NPCAT</b><span class="q__desc">Keep it in your wallet. That is the whole quest.</span></div><em>Reward: $NPC</em></div>
+      <div class="q"><span class="q__mark q__mark--dim">·</span><div><b>Every trade feeds the pot</b><span class="q__desc">A transfer tax built into the token (1% or 3%, chosen at launch) is what gets shared out.</span></div><em>Rate: TBA</em></div>
+      <div class="q"><span class="q__mark q__mark--dim">·</span><div><b>Payouts arrive on their own</b><span class="q__desc">When the pot is worth paying out, StonkFun splits it across holders. It keeps going after the coin graduates to Raydium.</span></div><em>Automatic</em></div>
+      <div class="q"><span class="q__mark q__mark--dim">·</span><div><b>Check the numbers on StonkFun</b><span class="q__desc">The official token page shows tokens distributed, payouts and holder count. Link lands here at launch.</span></div><em>TBA</em></div>
+    </div>
+    <p class="fine">Mechanism as described on stonkfun.xyz/rewards. This page will only ever quote the figures shown on the official NPCAT token page.</p>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="block" id="pair">
+    <p class="label">The pair</p>
+    <h2 class="t">Not priced in SOL. Priced in NPC.</h2>
+    <p class="lead">StonkFun lets a coin launch paired with anything. NPCAT launches paired with <b>$NPC</b>: every NPCAT trade is an NPC trade, and the chart reads in NPC.</p>
+    <div class="pairviz">
+      <div class="tok"><b>$NPC</b><small>Quote asset · Non-Playable Coin</small></div>
+      <div class="eq">×</div>
+      <div class="tok tok--ncat"><img class="catimg" src="assets/img/cat.png" alt="" /><b>$NPCAT</b><small>Base asset · Non-Playable Cat</small></div>
+    </div>
+    <div class="facts">
+      <div class="fact"><small>CHAIN</small><b>Solana</b><span>Launched on StonkFun</span></div>
+      <div class="fact"><small>PAIR</small><b>NPCAT / NPC</b><span>Quoted in $NPC, not SOL</span></div>
+      <div class="fact"><small>SUPPLY</small><b>TBA</b><span>Set at launch, verifiable on-chain</span></div>
+      <div class="fact"><small>CONTRACT</small><b id="ca">TBA</b><span>Copy it from here at launch</span><button type="button" data-copy="TBA" hidden>Copy</button></div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="block" id="buy">
+    <p class="label">How to buy</p>
+    <h2 class="t">Four steps. Zero thoughts required.</h2>
+    <div class="steps">
+      <div class="step"><h3>Get a Solana wallet</h3><p>Phantom or Solflare. Put a little SOL in it for fees.</p></div>
+      <div class="step"><h3>Swap SOL for $NPC</h3><p>NPCAT is bought with NPC, so the quote asset comes first.</p></div>
+      <div class="step"><h3>Open NPCAT on StonkFun</h3><p>Only ever use the official link from this page or the X profile. Check it twice.</p></div>
+      <div class="step"><h3>Swap NPC for $NPCAT</h3><p>Confirm. Sit. Stare. You are now one of the crowd.</p></div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="block" id="faq">
+    <p class="label">No dumb questions</p>
+    <h2 class="t">Questions NPCs ask.</h2>
+    <div class="faq">
+      <details open><summary>What is $NPCAT?</summary><p>A meme coin on Solana about a non-playable cat. It launched on StonkFun paired with $NPC, the Non-Playable Coin. It has no utility and no roadmap.</p></details>
+      <details><summary>What does “paired with $NPC” mean?</summary><p>On StonkFun a coin can trade against any asset instead of SOL. NPCAT trades against NPC, so you buy it with NPC and the price is shown in NPC.</p></details>
+      <details><summary>How do I get $NPC by holding?</summary><p>NPCAT is a StonkFun reward coin. A transfer tax on every trade collects into a pot, and when the pot is worth paying out StonkFun splits it across holders in the paired asset, $NPC. There is no claim button and no staking; it lands in the wallet that holds NPCAT. The tax rate and threshold are fixed at launch and shown on the token page.</p></details>
+      <details><summary>Is there a roadmap?</summary><p>No.</p></details>
+      <details><summary>Is this financial advice?</summary><p>No. It just sits there.</p></details>
+      <details><summary>Is NPCAT affiliated with npc.com or StonkFun?</summary><p>No. NPCAT is a community meme coin that uses StonkFun as its launchpad and $NPC as its quote asset. It is not endorsed by either.</p></details>
+    </div>
+  </section>
+
+  <section class="block" id="community">
+    <div class="community">
+      <div>
+        <p class="label">Community</p>
+        <p class="big">We are<br>all <span>NPCAT.</span></p>
+        <div class="cta">
+          <a class="btn btn--bang" href="https://x.com/npcatnpc" target="_blank" rel="noopener">X / Twitter</a>
+          <a class="btn" href="#buy" data-soon="link at launch">StonkFun page</a>
+          <a class="btn" href="#community" data-soon="link at launch">Telegram</a>
+        </div>
+      </div>
+      <div class="sticker"><img src="assets/img/logo-full.png" alt="" /></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>$NPCAT is a meme coin. No utility, no roadmap, no promises. Not affiliated with npc.com, StonkFun, or any cat. Nothing here is financial advice. Only trust links from this page and <a href="https://x.com/npcatnpc" rel="noopener" target="_blank">x.com/npcatnpc</a>.</p>
+    <p>© 2026 NPCAT · <a href="https://npcat.cat/">npcat.cat</a></p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/ScrollTrigger.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
